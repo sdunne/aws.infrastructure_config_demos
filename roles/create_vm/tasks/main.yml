@@ -67,6 +67,7 @@
 
     - name: Create instance
       amazon.aws.ec2_instance:
+        count: "{{ instance_count | default("1") }}"
         filters:
           "tag:Name": "{{ create_vm_vm_name }}"
         network:
